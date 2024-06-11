@@ -5,4 +5,9 @@ initial the project
 3 =>    npm i react-router-dom
 4 =>    npm install @reduxjs/toolkit react-redux
 
+create HeaderPage
+
+create AboutPage
+
+initialize The Router   /about                <About/>
 
