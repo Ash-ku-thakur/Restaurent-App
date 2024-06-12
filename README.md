@@ -11,3 +11,13 @@ create AboutPage
 
 initialize The Router   /about                <About/>
 
+create SearchBar  
+
+create a Card with dummy data
+
+create RestaurentList with fetch swiggy api after fetching data send it to Card component
+
+
+
+
+
