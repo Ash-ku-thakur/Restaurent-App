@@ -17,6 +17,8 @@ create a Card with dummy data
 
 create RestaurentList with fetch swiggy api after fetching data send it to Card component
 
+code become more moduler with hook folder (useGetRestaurent and subString method)
+
 
 
 

@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const Card = ({ data }) => {
   let {
     name,
@@ -7,6 +9,18 @@ const Card = ({ data }) => {
     cuisines,
     aggregatedDiscountInfoV3,
   } = data?.info;
+
+  let [title] = useState(name);
+  let [discription] = useState(cuisines.join(" "));
+  let [minLength] = useState("1");
+  let [maxLength] = useState("25");
+
+  if (!name) {
+    return null;
+  }
+  if (!discription) {
+    return null;
+  }
 
   return (
     <div className="px-6 py-16 hover:scale-95 transition-all">
@@ -20,9 +34,17 @@ const Card = ({ data }) => {
       </div>
 
       <div className="font-semibold">
-        <h2>{name}</h2>
+        {title.length > minLength ? (
+          <p>{title.substring(0, maxLength)}</p>
+        ) : (
+          <p>{"title is so sort"}</p>
+        )}
         <h2>{avgRatingString}</h2>
-        {/* <h2>{cuisines}</h2> */}
+        {discription.length > minLength ? (
+          <p>{discription.substring(0, maxLength)}</p>
+        ) : (
+          <p>{"discription is so sort"}</p>
+        )}
         <h2>{areaName}</h2>
       </div>
     </div>
