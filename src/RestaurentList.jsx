@@ -1,16 +1,23 @@
 import Card from "./Card";
 import useGetRestaurent from "./hooks/useGetRestaurent";
+import { RESTAURENT_URL } from "./constant/Variables";
+import { Link } from "react-router-dom";
 
 const RestaurentList = () => {
-  let restaurents = useGetRestaurent();
-  if (!restaurents) {
+  let restaurentList = useGetRestaurent(RESTAURENT_URL);
+  let { cards } = restaurentList;
+  if (!cards) {
     return null;
   }
 
+  let { restaurants } = cards[4]?.card?.card?.gridElements?.infoWithStyle;
+  console.log(restaurants);
   return (
     <div className="flex flex-wrap flex-shrink-0">
-      {restaurents.map((res) => (
-        <Card data={res} key={res?.info?.id} />
+      {restaurants.map((res) => (
+        <Link key={res?.info?.id} to={"/restaurentCard/" + res?.info?.id}>
+          <Card data={res} />
+        </Link>
       ))}
     </div>
   );

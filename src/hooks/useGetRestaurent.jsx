@@ -1,28 +1,21 @@
 import { useEffect, useState } from "react";
 
-const useGetRestaurent = () => {
-  let [restaurents, setrestaurents] = useState([]);
+const useGetRestaurent = (url) => {
+  let [restaurentList, setRestaurentList] = useState([]);
 
   let fetchData = async () => {
-    let data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.65420&lng=77.23730&is-seo-homepage-enabled=true&p"
-    );
+    let data = await fetch(url);
 
     let json = await data.json();
 
-    setrestaurents(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    setRestaurentList(json?.data);
   };
-  console.log(restaurents[0]);
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  
-
-  return restaurents;
+  return restaurentList;
 };
 
 export default useGetRestaurent;

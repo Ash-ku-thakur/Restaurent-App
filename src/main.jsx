@@ -1,10 +1,10 @@
 import ReactDOM from "react-dom/client";
 import "./index.css";
-// import App from "./App";
 import Header from "./Header";
 import About from "./About";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import Body from "./Body";
+import RestaurentMenuList from "./RestaurentMenuList";
 
 let Main = () => {
   return (
@@ -29,6 +29,10 @@ let appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/restaurentCard/:id",
+        element: <RestaurentMenuList />,
       },
     ],
   },

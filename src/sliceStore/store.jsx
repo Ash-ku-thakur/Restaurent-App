@@ -1,7 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
+import ParamsSlicer from "../Slicers/ParamsSlicer";
 
 const Store = configureStore({
-  reducer: {},
+  reducer: {
+    perameter: ParamsSlicer,
+  },
 });
 
 export default Store;
