@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <div className="w-full shadow-lg flex items-center justify-between px-6">
         <div>
-            <img src="../public/vite.svg" alt="logo navbar" />
+            <img src="/vite.svg" alt="logo navbar" />
         </div>
 
         <div className="flex justify-center gap-20 mr-28 my-6">

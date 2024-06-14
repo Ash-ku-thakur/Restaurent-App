@@ -3,11 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 let ParamsSlicer = createSlice({
   name: "perameter",
   initialState: {
-    menuId: [],
+    menuId: '',
   },
   reducers: {
     insertParams: (state, action) => {
-      state.menuId.push(action.payload);
+      state.menuId = (action.payload);
     },
   },
 });

@@ -11,12 +11,12 @@ const RestaurentList = () => {
   }
 
   let { restaurants } = cards[4]?.card?.card?.gridElements?.infoWithStyle;
-  console.log(restaurants);
+
   return (
     <div className="flex flex-wrap flex-shrink-0">
       {restaurants.map((res) => (
         <Link key={res?.info?.id} to={"/restaurentCard/" + res?.info?.id}>
-          <Card data={res} />
+          <Card data={res} urlId={res?.info?.id} />
         </Link>
       ))}
     </div>

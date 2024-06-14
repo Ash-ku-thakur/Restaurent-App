@@ -1,6 +1,8 @@
 import { useState } from "react";
 
-const Card = ({ data }) => {
+const Card = ({ data}) => {
+
+  
   let {
     name,
     areaName,

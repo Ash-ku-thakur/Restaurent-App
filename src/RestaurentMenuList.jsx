@@ -1,21 +1,34 @@
+import { useEffect, useState } from "react";
 import RestaurentCard from "./RestaurentCard";
 import { MENU_URL } from "./constant/Variables";
 import useGetRestaurent from "./hooks/useGetRestaurent";
+import { useParams } from "react-router-dom";
 
 const RestaurentMenuList = () => {
-  let restaurentList = useGetRestaurent(MENU_URL);
+  let params = useParams()
+
+  let restaurentList = useGetRestaurent(MENU_URL+params.id);
   let { cards } = restaurentList;
+
   if (!cards) {
     return null;
   }
-  let { itemCards } = cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
 
-  console.log(itemCards);
+  let { REGULAR } = cards[4]?.groupedCard?.cardGroupMap;
+
+  console.log(REGULAR?.cards);
+
   return (
     <div>
-      {itemCards.map((item, index) => (
-        <RestaurentCard data={item} key={index} />
-      ))}
+      {REGULAR?.cards
+        .filter(
+          (elem) =>
+            elem?.card?.card?.["@type"] ===
+            "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+        )
+        .map((item, index) => (
+          <RestaurentCard data={item?.card?.card?.itemCards[0]} key={index} />
+        ))}
     </div>
   );
 };

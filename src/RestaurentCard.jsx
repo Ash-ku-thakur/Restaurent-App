@@ -1,12 +1,17 @@
 import { useState } from "react";
 
 const RestaurentCard = ({ data }) => {
+  // console.log(data?.card?.info);
   let [title] = useState(data?.card?.info?.description);
   let [minLength] = useState("1");
   let [maxLength] = useState("55");
 
+  if (!title) {
+    return null;
+  }
+
   return (
-    <div className="w-[70%] p-8 border-black border-[1px] m-auto">
+    <div className="w-[70%] p-8 m-auto">
       <div>
         {data?.card?.info?.itemAttribute?.vegClassifier === "NONVEG"
           ? "🐔"
@@ -17,7 +22,7 @@ const RestaurentCard = ({ data }) => {
           <h2 className="font-extrabold">{data?.card?.info?.name}</h2>
           <h2 className="font-extrabold">
             {data?.card?.info?.defaultPrice / 100 ||
-              data?.card?.info?.finalPrice / 100}
+              data?.card?.info?.price / 100}
           </h2>
           <h2 className="w-[70%]">
             {title.length > minLength ? (
