@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import ParamsSlicer from "../slicers/ParamsSlicer";
+import AddtoCartSlicer from "../slicers/AddtoCartSlicer";
 
 const Store = configureStore({
   reducer: {
-    perameter: ParamsSlicer,
+    AddToCart: AddtoCartSlicer
   },
 });
 

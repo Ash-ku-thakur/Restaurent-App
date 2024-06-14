@@ -7,6 +7,7 @@ import Body from "./Body";
 import RestaurentMenuList from "./RestaurentMenuList";
 import { Provider } from "react-redux";
 import Store from "./sliceStore/store";
+import IntheCart from "./IntheCart";
 
 let Main = () => {
   return (
@@ -37,6 +38,10 @@ let appRouter = createBrowserRouter([
       {
         path: "/restaurentCard/:id",
         element: <RestaurentMenuList />,
+      },
+      {
+        path: "/cart",
+        element: <IntheCart />,
       },
     ],
   },

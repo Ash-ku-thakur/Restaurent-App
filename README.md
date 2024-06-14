@@ -49,3 +49,13 @@ they will not match with our destructuring (results data)
  'rules":"react/prop-types':'off',    in the (.eslintrc.cjs)
 
  this line is stop throwing error showing of tyscript like (red wave, then we destructure the objects , {missing props})
+
+
+ <!-- ============================================================== -->
+
+ Add RestaurentMenu commponent so that render all the menu items
+
+ create Cart Feature  ======== I made two another commponents IntheCart and RestaurentMenu 
+
+ to store the selected item I have used redux and redux/toolkit ======== AddtoCartSlicer
+

@@ -1,7 +1,16 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCartData } from "./slicers/AddtoCartSlicer";
 
 const RestaurentCard = ({ data }) => {
-  // console.log(data?.card?.info);
+  let dispatch = useDispatch();
+
+   // dispatch for redux Slicer
+  let addToCartHandel = (item) => {
+    dispatch(addToCartData(item));        
+  };
+
+  // to string length manipulating
   let [title] = useState(data?.card?.info?.description);
   let [minLength] = useState("1");
   let [maxLength] = useState("55");
@@ -11,7 +20,7 @@ const RestaurentCard = ({ data }) => {
   }
 
   return (
-    <div className="w-[70%] p-8 m-auto">
+    <div className="w-[70%] p-8 m-auto" onClick={() => addToCartHandel(data)}>
       <div>
         {data?.card?.info?.itemAttribute?.vegClassifier === "NONVEG"
           ? "🐔"
@@ -33,12 +42,16 @@ const RestaurentCard = ({ data }) => {
           </h2>
         </div>
 
-        <div className="w-[15%]">
+        <div className="w-[15%] relative">
           <img
             className="rounded-2xl"
             src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/${data?.card?.info?.imageId}`}
             alt="RestaurentCardImage"
           />
+
+          <h2 className="absolute top-2 font-extrabold text-center w-full bg-gray-300 rounded-lg cursor-pointer hover:scale-95 transition-all">
+            Add to Cart
+          </h2>
         </div>
       </div>
     </div>
