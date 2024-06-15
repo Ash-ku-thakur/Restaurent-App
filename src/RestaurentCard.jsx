@@ -20,7 +20,7 @@ const RestaurentCard = ({ data }) => {
   }
 
   return (
-    <div className="w-[70%] p-8 m-auto" onClick={() => addToCartHandel(data)}>
+    <div className="w-[70%] m-auto mt-4" onClick={() => addToCartHandel(data)}>
       <div>
         {data?.card?.info?.itemAttribute?.vegClassifier === "NONVEG"
           ? "🐔"
