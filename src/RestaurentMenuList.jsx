@@ -5,7 +5,12 @@ import useGetRestaurent from "./hooks/useGetRestaurent";
 import { useParams } from "react-router-dom";
 
 const RestaurentMenuList = () => {
-  // let [showToggle, setShowToggle] = useState(false);
+  // let [showMenu, setShowMenu] = useState(true)
+  // if we store a value of toggling then after click our state change,
+  // it change for all not a indivitiua that is why we dont't need a state variable
+
+  let [getIndex, setGetIndex] = useState(2); // we want to change it dynamicly on click of Recomendation Click
+
   let params = useParams();
 
   let restaurentList = useGetRestaurent(MENU_URL + params.id);
@@ -16,14 +21,8 @@ const RestaurentMenuList = () => {
   }
 
   let { REGULAR } = cards[4]?.groupedCard?.cardGroupMap;
+  console.log(getIndex);
 
-  // let handelToggle = () => {
-  //   showToggle ? setShowToggle(false) : setShowToggle(true);
-  // };
-
-  let handelClick = (index) => {
-    console.log(index);
-  };
   return (
     <div>
       {REGULAR?.cards
@@ -34,14 +33,14 @@ const RestaurentMenuList = () => {
         )
         .map((item, index) => (
           <div key={index}>
-            <div className="w-[70%] m-auto text-2xl font-extrabold flex justify-between items-center mt-4 cursor-pointer" onClick={() => handelClick(index)}>
-              <h3 className="">
-                {item?.card?.card?.title}({item?.card?.card?.itemCards.length})
-              </h3>
-              {"🔻"}
-            </div>
-            <div >
-              <RestaurentMenu data={item?.card?.card?.itemCards} />
+            <div>
+              {
+                <RestaurentMenu
+                  data={item?.card?.card}
+                  setGetIndex={() => setGetIndex(index)} // callBack take a input that change on click of Recomendation
+                  Toggle={index == getIndex ? true : false}
+                />
+              }
             </div>
           </div>
         ))}

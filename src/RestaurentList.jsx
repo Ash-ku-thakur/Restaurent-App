@@ -11,6 +11,9 @@ const RestaurentList = () => {
   }
 
   let { restaurants } = cards[4]?.card?.card?.gridElements?.infoWithStyle;
+  if (!restaurants) {
+    return null
+  }
 
   return (
     <div className="flex flex-wrap flex-shrink-0">
