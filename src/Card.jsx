@@ -12,6 +12,7 @@ const Card = ({ data}) => {
     aggregatedDiscountInfoV3,
   } = data?.info;
 
+  // string length Manipulating with the help of subString() method
   let [title] = useState(name);
   let [discription] = useState(cuisines.join(" "));
   let [minLength] = useState("1");

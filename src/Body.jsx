@@ -7,9 +7,10 @@ import RestaurentList from "./RestaurentList";
 const Body = () => {
   let [filteredName, setFilteredName] = useState("");
   let [inputName, setInputName] = useState([]);
-  
+  let [topCards, setTopCards] = useState([]);
+
   let restaurentList = useGetRestaurent(RESTAURENT_URL);
-  
+
   let { cards } = restaurentList;
   if (!cards) {
     return null;
@@ -25,15 +26,23 @@ const Body = () => {
     setInputName(FilText);
   };
 
+  let handleTopCard = () => {
+    let TopCards = restaurants.filter(
+      (elem) => elem.info.avgRating >= 4,
+    );
+    setTopCards(TopCards);
+  };
+
   return (
     <div>
       <Search
         filteredName={filteredName}
         setFilteredName={setFilteredName}
         handleSearchName={handleSearchName}
+        handleTopCard={handleTopCard}
       />
       <div>
-        <RestaurentList inputName={inputName}/>
+        <RestaurentList inputName={inputName} topCards={topCards} />
       </div>
     </div>
   );

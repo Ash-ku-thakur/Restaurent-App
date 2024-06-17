@@ -6,7 +6,7 @@ import { useState } from "react";
 // import { useEffect, useState } from "react";
 // import { useState } from "react";
 
-const RestaurentList = ({ inputName }) => {
+const RestaurentList = ({ inputName, topCards }) => {
   let restaurentList = useGetRestaurent(RESTAURENT_URL);
 
   let { cards } = restaurentList;
@@ -24,8 +24,15 @@ const RestaurentList = ({ inputName }) => {
   return (
     <div>
       <div className="flex flex-wrap flex-shrink-0">
-        {/* inputName is grater then or equal 1 than show inputName.map otherWise restaurent.map */}
-        {inputName.length >= 1
+        {/* topCards is grater then or equal 1 than show topCards.map otherWise inputName And Restaurents.map */}
+        {topCards.length >= 1
+          ? topCards.map((res) => (
+            <Link key={res?.info?.id} to={"/restaurentCard/" + res?.info?.id}>
+                <Card data={res} urlId={res?.info?.id} />
+              </Link>
+            ))
+            // {/* inputName is grater then or equal 1 than show inputName.map otherWise restaurent.map */}
+          : inputName.length >= 1
           ? inputName.map((res) => (
               <Link key={res?.info?.id} to={"/restaurentCard/" + res?.info?.id}>
                 <Card data={res} urlId={res?.info?.id} />

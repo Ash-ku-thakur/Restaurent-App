@@ -21,7 +21,7 @@ const RestaurentMenuList = () => {
   }
 
   let { REGULAR } = cards[4]?.groupedCard?.cardGroupMap;
-  console.log(getIndex);
+  // console.log(getIndex);
 
   return (
     <div>

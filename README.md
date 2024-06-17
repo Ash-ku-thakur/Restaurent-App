@@ -73,3 +73,7 @@ so that every RecomendMenuTitle (true , false or index) have a different states 
  <!-- ================================================================= -->
 
 create Search Funcnality with inputName is grater then or equal 1 than show inputName.map otherWise restaurent.map
+
+create Top Rating Card get Feature functiomality with topCards is grater then or equal 1 than show topCards.map otherWise inputName And restaurent.map,
+
+and little thing cartLength with the help of suscrib of redux store(useSelector())
