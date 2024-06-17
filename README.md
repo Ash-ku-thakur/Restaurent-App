@@ -46,27 +46,30 @@ they will not match with our destructuring (results data)
 
 <!-- ============================================================== -->
 
- 'rules":"react/prop-types':'off',    in the (.eslintrc.cjs)
+'rules":"react/prop-types':'off', in the (.eslintrc.cjs)
 
- this line is stop throwing error showing of tyscript like (red wave, then we destructure the objects , {missing props})
-
+this line is stop throwing error showing of tyscript like (red wave, then we destructure the objects , {missing props})
 
  <!-- ============================================================== -->
 
- Add RestaurentMenu commponent so that render all the menu items
+Add RestaurentMenu commponent so that render all the menu items
 
- create Cart Feature  ======== I made two another commponents IntheCart and RestaurentMenu 
+create Cart Feature ======== I made two another commponents IntheCart and RestaurentMenu
 
- to store the selected item I have used redux and redux/toolkit ======== AddtoCartSlicer
+to store the selected item I have used redux and redux/toolkit ======== AddtoCartSlicer
 
 <!-- ================================================================ -->
- Add Title (Recomended) on Menu Cards with length
+
+Add Title (Recomended) on Menu Cards with length
 
  <!-- =============================================================== -->
 
- Add Accodian Feature on Resturent-menu
+Add Accodian Feature on Resturent-menu
 
- we can make it with RestaurentMenuList commponent but there is a problem,
- that we will pase that is why we want to create this featrure help of childCommponent,
- so that every RecomendMenuTitle (true , false or index) have a different states other wise only a state it will not sufficent for every RecomendMenuTitle 
+we can make it with RestaurentMenuList commponent but there is a problem,
+that we will pase that is why we want to create this featrure help of childCommponent,
+so that every RecomendMenuTitle (true , false or index) have a different states other wise only a state it will not sufficent for every RecomendMenuTitle
 
+ <!-- ================================================================= -->
+
+create Search Funcnality with inputName is grater then or equal 1 than show inputName.map otherWise restaurent.map
