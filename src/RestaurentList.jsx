@@ -2,9 +2,6 @@ import Card from "./Card";
 import useGetRestaurent from "./hooks/useGetRestaurent";
 import { RESTAURENT_URL } from "./constant/Variables";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-// import { useEffect, useState } from "react";
-// import { useState } from "react";
 
 const RestaurentList = ({ inputName, topCards }) => {
   let restaurentList = useGetRestaurent(RESTAURENT_URL);
@@ -19,7 +16,6 @@ const RestaurentList = ({ inputName, topCards }) => {
     return null;
   }
 
-  // console.log(inputName);
 
   return (
     <div>

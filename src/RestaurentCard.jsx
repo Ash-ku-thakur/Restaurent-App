@@ -1,13 +1,20 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addToCartData } from "./slicers/AddtoCartSlicer";
+import { addToCartData, deleteToCart } from "./slicers/AddtoCartSlicer";
+import { AiOutlineStar } from "react-icons/ai";
+import { MdOutlineDeleteSweep } from "react-icons/md";
 
 const RestaurentCard = ({ data }) => {
   let dispatch = useDispatch();
 
-   // dispatch for redux Slicer
+  // dispatch for redux Slicer
   let addToCartHandel = (item) => {
-    dispatch(addToCartData(item));        
+    dispatch(addToCartData(item));
+  };
+
+  
+  let handelCartDelete = (item) => {
+    dispatch(deleteToCart(item));
   };
 
   // to string length manipulating
@@ -20,7 +27,7 @@ const RestaurentCard = ({ data }) => {
   }
 
   return (
-    <div className="w-[70%] m-auto mt-4" onClick={() => addToCartHandel(data)}>
+    <div className="w-[70%] m-auto mt-4" >
       <div>
         {data?.card?.info?.itemAttribute?.vegClassifier === "NONVEG"
           ? "🐔"
@@ -49,9 +56,19 @@ const RestaurentCard = ({ data }) => {
             alt="RestaurentCardImage"
           />
 
-          <h2 className="absolute top-2 font-extrabold text-center w-full bg-gray-300 rounded-lg cursor-pointer hover:scale-95 transition-all">
-            Add to Cart
-          </h2>
+          <div
+            onClick={() =>addToCartHandel(data)}
+            className="absolute top-2 font-extrabold text-center bg-gray-300 rounded-lg cursor-pointer hover:scale-95 transition-all"
+          >
+            <AiOutlineStar size="2rem" />
+          </div>
+
+          <div
+            onClick={() =>handelCartDelete(data)}
+            className="absolute bottom-2 font-extrabold text-center bg-gray-300 rounded-lg cursor-pointer hover:scale-95 transition-all"
+          >
+            <MdOutlineDeleteSweep size="1.5rem" />
+          </div>
         </div>
       </div>
     </div>

@@ -77,3 +77,21 @@ create Search Funcnality with inputName is grater then or equal 1 than show inpu
 create Top Rating Card get Feature functiomality with topCards is grater then or equal 1 than show topCards.map otherWise inputName And restaurent.map,
 
 and little thing cartLength with the help of suscrib of redux store(useSelector())
+
+<!-- ================================================================== -->
+npm install react-icons 
+
+Toggling feature of Cart (Add to Cart ---------- Delete To Cart)
+
+delete one cart from cartList
+
+deleteToCart: (state, action) => {
+let index = state.cartList.findIndex((p) => p?.info?.id == action?.payload?.info?.id)
+state.cartList.splice(index, 1);
+},
+
+deleteAllCart from cartList
+
+deleteAllCart: (state) => {
+state.cartList = []
+},

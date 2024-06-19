@@ -9,7 +9,7 @@ const RestaurentMenuList = () => {
   // if we store a value of toggling then after click our state change,
   // it change for all not a indivitiua that is why we dont't need a state variable
 
-  let [getIndex, setGetIndex] = useState(2); // we want to change it dynamicly on click of Recomendation Click
+  let [getIndex, setGetIndex] = useState(0); // we want to change it dynamicly on click of Recomendation Click
 
   let params = useParams();
 

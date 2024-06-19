@@ -33,7 +33,8 @@ const Card = ({ data}) => {
           src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`}
           alt=""
         />
-        <h2 className="absolute bottom-1 text-white font-extrabold text-xl text-center w-full">{`${aggregatedDiscountInfoV3?.header} ${aggregatedDiscountInfoV3?.subHeader}`}</h2>
+        {/* todo: heiger order component */}
+        {/* <h2 className="absolute bottom-1 text-white font-extrabold text-xl text-center w-full">{`${aggregatedDiscountInfoV3?.header} ${aggregatedDiscountInfoV3?.subHeader}`}</h2> */}
       </div>
 
       <div className="font-semibold">
