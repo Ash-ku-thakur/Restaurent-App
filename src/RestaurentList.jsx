@@ -16,6 +16,7 @@ const RestaurentList = ({ inputName, topCards }) => {
     return null;
   }
 
+  // console.log(inputName);
 
   return (
     <div>
